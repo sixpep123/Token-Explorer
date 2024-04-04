@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Link from "next/link";
 import styles from "./Content.module.css";
 import { useContext, createContext } from "react";
@@ -25,8 +24,9 @@ const Content = () => {
           url += `&contractName=${searchContract}`;
         }
 
-        const data = await axios.get(url);
-        const details = data.data.response;
+        const fetchData = await fetch(url);
+        const jsonData = await fetchData.json();
+        const details = jsonData.response;
 
         if (countValue) {
           const pastTimeData = details.filter(
