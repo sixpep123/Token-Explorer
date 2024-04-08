@@ -45,9 +45,9 @@ const GetMethodDetails = async ({ searchParams }) => {
           <table>
             <thead>
               <tr>
-                <th>Transaction</th>
                 <th>Sender</th>
-                <th>Chain</th>
+                <th>Time Stamp</th>
+                <th>Action</th>
                 <th className={styles.countDrop}>
                   <label htmlFor="count">Count </label>
                 </th>
@@ -58,12 +58,13 @@ const GetMethodDetails = async ({ searchParams }) => {
                 if (ob.count)
                   return (
                     <tr key={ind}>
-                      <td className={styles.splRow}>{ob.tx_hash} </td>
-                      <td className={styles.splRow}>{ob.sender} </td>
+                      <td className={styles.splRow}>{ob.sender}</td>
+                      <td>{new Date(ob.timestamp * 1000).toLocaleString()}</td>
                       <td className={styles.splRow}>{ob.actionName} </td>
                       <td style={{ display: "flex", justifyContent: "center" }}>
-                        {ob.count}{" "}
+                        {ob.count}
                       </td>
+                      <td>{ob.blockNumber} </td>
                     </tr>
                   );
               })}
