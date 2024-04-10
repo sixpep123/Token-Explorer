@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./Content.module.css";
+import { useContext, createContext } from "react";
 
+const portalData = createContext();
 const Content = () => {
   const [chainName, setChainName] = useState("wax");
   const [searchContract, setSearchContract] = useState("");
