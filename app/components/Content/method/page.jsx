@@ -64,7 +64,6 @@ const GetMethodDetails = async ({ searchParams }) => {
                       <td style={{ display: "flex", justifyContent: "center" }}>
                         {ob.count}
                       </td>
-                      <td>{ob.blockNumber} </td>
                     </tr>
                   );
               })}
